@@ -1,0 +1,17 @@
+sudo losetup -Pf Scaricati/Lakka-Generic.x86_64-2.3.2.img
+sudo mount /dev/sdb27 /mnt
+sudo rsync -avxHAXW --progress --numeric-ids /media/ubuntu/LAKKA/ /mnt/
+sudo umount /mnt
+sudo mount /dev/sdb28 /mnt
+sudo rsync -avxHAXW --progress -numeric-ids /media/ubuntu/LAKKA_DISK/ /mnt/
+sudo umount /mnt
+
+[grub.cfg]
+
+menuentry "Lakka 2.3.2 (su /dev/sdb27) [RetroArch]" {
+	insmod part_gpt
+	insmod ext2
+	set root='hd1,gpt27'
+	linux /KERNEL boot=UUID=45e422de-3f5a-4a4f-a2f2-30175dc97a3c disk=UUID=06d637b2-1a3b-4b64-94ac-588fb0ec9764 quiet vt.global_cursor_default=0 loglevel=2
+}
+

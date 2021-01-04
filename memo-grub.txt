@@ -1,0 +1,5 @@
+grub.cfg troubles:
+
+* Manjaro need additional parameter
+* elementary copied from its own grub
+* lakka see lakka.txt (googled openelec dual boot and lakka dual boot)
